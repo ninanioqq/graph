@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+    <script src="idval.js"></script>
+    <script src="forceatlas.js"></script>
+    <div>
+        <button onclick="pad++; updateDisplay()">Increase Padding</button>
+        <button onclick="pad--; updateDisplay()">Decrease Padding</button>
+        <button onclick="newNode()">Add / Edit Node</button>
+        <button onclick="newEdge()">Add / Edit Edge</button>
+        <button onclick="deleteNode()">Delete Node</button>
+        <button onclick="deleteEdge()">Delete Edge</button>
+        <!-- <button onclick='nodes.p = {"x": 50, "y": 20, "radius": 10}; nodes.q = {"x": 20, "y": 50, "radius": 15}; nodes.r = {"x": 40, "y": -10, "radius": 12}; edges.pee = {"source": "p", "target": "q", "width": 1}; edges.qee = {"source": "r", "target": "q", "width": 1}; updateDisplay()'>Example Nodes</button> -->
+        <button onclick="forceAtlas()">Force Atlas</button>
+        <button onclick="forceAtlas(100)">Force Atlas 100 iterations</button>
+        <button onclick="iterForceAtlas()">Iterate Force Atlas</button>
+        <button onclick="forceAtlas(1, 0.01)">Weak Force Atlas</button>
+        <button onclick="forceAtlas(100, 0.01)">Weak Force Atlas 100 iterations</button>
+        <button onclick="iterForceAtlas(0.01)">Iterate Weak Force Atlas</button>
+        <button onclick="alert(JSON.stringify(nodes))">Get Nodes</button>
+        <button onclick="alert(JSON.stringify(edges))">Get Edges</button>
+        <button onclick="jsonify()">Fetch nodes / edges</button>
+    </div>
+    <svg id="canv" width="0" height="0"></svg>
+    <div id="prompts"></div>
+    <script src="script.js"></script>
+</body>
+</html>

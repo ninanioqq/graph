@@ -1,0 +1,22 @@
+button {
+    background-color: #f0f2;
+    border-radius: 10px;
+    border: solid #000 1px;
+    transition: all 0.2s ease;
+    margin: 2px 3px;
+}
+button:hover {
+    background-color: #f0f4;
+}
+#canv {
+    border: solid #000 1px;
+}
+circle {
+    transition: all 0.2s ease;
+}
+input {
+    margin: 2px 3px;
+}
+.monospace {
+    font-family: "Consolans";
+}
