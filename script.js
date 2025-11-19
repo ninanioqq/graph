@@ -148,7 +148,7 @@ function updateDisplay() {
         circ.setAttribute("fill", "#f00")
         circ.id = "node-" + id
         const tooltip = SVG("title")
-        tooltip.textContent = `Node ${id} at coords (${x}, ${y})`
+        tooltip.textContent = `Node ${id} at coords (${x}, ${y}) with radius ${r}`
         canv.appendChild(circ)
         circ.appendChild(tooltip)
     })
@@ -195,4 +195,5 @@ function jsonify() {
     newButton("Done", () => {
         clearElement()
     })
+
 }
