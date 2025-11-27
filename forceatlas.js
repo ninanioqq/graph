@@ -45,10 +45,11 @@ function forceAtlas(iterations = 1, attraction = 0.1, repulsion = 2000) {
     }
     updateDisplay()
 }
-function iterForceAtlas(attraction = 0.2, repulsion = 2000) {
+function iterForceAtlas(attraction = 0.2, repulsion = 2000, iter = 5000) {
     const nodeKeys = Object.keys(nodes)
     let loss = 10000
-    while (loss > 0.000001) {
+    let i = 0
+    while (loss > 0.000001 && i < iter) {
         const forces = {}
         nodeKeys.forEach(k => forces[k] = { fx: 0, fy: 0 })
         for (let i = 0; i < nodeKeys.length; i++) {
@@ -89,7 +90,8 @@ function iterForceAtlas(attraction = 0.2, repulsion = 2000) {
             nodes[k].y += forces[k].fy
             loss += Math.sqrt(forces[k].fx * forces[k].fx + forces[k].fy * forces[k].fy)
         })
-        console.log(`Loss: ${loss}`)
+        i++
+        console.log(`Loss: ${loss}\nIteration: ${i}`)
     }
     updateDisplay()
-}
+}}
