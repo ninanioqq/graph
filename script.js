@@ -10,9 +10,7 @@ function addBreak(element = prompts) {
     element.appendChild(document.createElement("br"))
 }
 function clearElement(element = prompts) {
-    while (element.firstChild) {
-        element.firstChild.remove()
-    }
+    element.innerHTML = ""
 }
 function newInput(id, placeholder = id, type = "number", parent = prompts) {
     const input = document.createElement("input")
@@ -89,7 +87,6 @@ function newEdge() {
     })
 }
 function updateDisplay() {
-    clearElement(canv)
     canv.innerHTML = '<defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="black" /></marker></defs>'
     let minx = 0
     let maxx = 0
@@ -202,3 +199,4 @@ function jsonify() {
     })
 
 }
+
