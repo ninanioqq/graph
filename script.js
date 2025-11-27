@@ -58,21 +58,23 @@ function newEdge() {
     newInput("id2", "Target ID", "text")
     newInput("weight", "Weight")
     newInput("id", "Edge ID", "text")
+    newInput("dir", "Directed?", "checkbox")
     addBreak()
     newButton("Add edge", () => {
         const src = IdVal("id1", "txt")
         const trg = IdVal("id2", "str")
         let id = IdVal("id", "txt")
         const weight = IdVal("weight")
+        const dir = document.getElementById("dir").checked
         if (!src || !trg) {
             alert("Node ID cannot be empty!!")
             return
         }
         if (!id) {
-            alert(`Edge ID cannot be empty. Using ${src}${trg}.`)
             id = `${src}${trg}`
         }
         edges[id] = {
+            "directed": dir,
             "source": src,
             "target": trg,
             "width": weight
@@ -88,6 +90,7 @@ function newEdge() {
 }
 function updateDisplay() {
     clearElement(canv)
+    canv.innerHTML = '<defs><marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="black" /></marker></defs>'
     let minx = 0
     let maxx = 0
     let miny = 0
@@ -126,12 +129,14 @@ function updateDisplay() {
         const x2 = nodes[edges[id]["target"]]["x"]
         const y2 = nodes[edges[id]["target"]]["y"]
         const w = edges[id]["width"]
+        const dir = edges[id]["directed"]
         p.setAttribute("x1", x1 - minx)
         p.setAttribute("y1", y1 - miny)
         p.setAttribute("x2", x2 - minx)
         p.setAttribute("y2", y2 - miny)
         p.setAttribute("stroke-width", w)
         p.setAttribute("stroke", "#000")
+        if (dir) {p.setAttribute("marker-end", "url(#arrowhead)")}
         p.id = "edge-" + id
         canv.appendChild(p)
     })
