@@ -25,20 +25,23 @@ function newButton(intext, onclick, parent = prompts) {
     button.onclick = onclick
     parent.appendChild(button)
 }
+function g(id) {
+    return docLang[id]
+}
 function newNode() {
     clearElement()
-    newInput("id", "Node ID", "string")
-    newInput("x", "X coordinate")
-    newInput("y", "Y coordinate")
-    newInput("r", "Node radius")
+    newInput("id", g("ndcr1"), "string")
+    newInput("x", g("ndcr2"))
+    newInput("y", g("ndcr3"))
+    newInput("r", g("ndcr4"))
     addBreak()
-    newButton("Add node", () => {
+    newButton(g("ndcr5"), () => {
         const x = IdVal("x")
         const y = IdVal("y")
         const id = IdVal("id", "str")
         const r = IdVal("r")
         if (!id) {
-            alert("Node ID cannot be empty!!")
+            alert(g("nodealert"))
             return
         }
         nodes[id] = {
@@ -52,20 +55,20 @@ function newNode() {
 }
 function newEdge() {
     clearElement()
-    newInput("id1", "Source ID", "text")
-    newInput("id2", "Target ID", "text")
-    newInput("weight", "Weight")
-    newInput("id", "Edge ID", "text")
-    newInput("dir", "Directed?", "checkbox")
+    newInput("id1", g("edcr1"), "text")
+    newInput("id2", g("edcr2"), "text")
+    newInput("weight", g("edcr3"))
+    newInput("id", g("edcr4"), "text")
+    newInput("dir", g("edcr5"), "checkbox")
     addBreak()
-    newButton("Add edge", () => {
+    newButton(g("edcr6"), () => {
         const src = IdVal("id1", "txt")
         const trg = IdVal("id2", "str")
         let id = IdVal("id", "txt")
         const weight = IdVal("weight")
         const dir = document.getElementById("dir").checked
         if (!src || !trg) {
-            alert("Node ID cannot be empty!!")
+            alert(g("nodealert"))
             return
         }
         if (!id) {
@@ -80,7 +83,7 @@ function newEdge() {
         clearElement()
         updateDisplay()
     })
-    newButton("Show nodes", () => {
+    newButton(g("edcr7"), () => {
         updateDisplay()
         document.getElementById(`node-${IdVal("id1", "txt")}`).setAttribute("fill", "#0f0")
         document.getElementById(`node-${IdVal("id2", "str")}`).setAttribute("fill", "#00f")
@@ -150,7 +153,7 @@ function updateDisplay() {
         circ.setAttribute("fill", "#f00")
         circ.id = "node-" + id
         const tooltip = SVG("title")
-        tooltip.textContent = `Node ${id} at coords (${x}, ${y}) with radius ${r}`
+        tooltip.textContent = g("nodettip").replace("$0", id).replace("$1", `(${x}, ${y})`).replace("$2", r)
         canv.appendChild(circ)
         circ.appendChild(tooltip)
     })
@@ -159,8 +162,8 @@ function updateDisplay() {
 }
 function deleteNode() {
     clearElement()
-    newInput("id", "Node ID", "text")
-    newButton("Delete", () => {
+    newInput("id", g("ndcr1"), "text")
+    newButton(g("del"), () => {
         delete nodes[IdVal("id")]
         clearElement()
         updateDisplay()
@@ -168,8 +171,8 @@ function deleteNode() {
 }
 function deleteEdge() {
     clearElement()
-    newInput("id", "Edge ID", "text")
-    newButton("Delete", () => {
+    newInput("id", g("edcr4"), "text")
+    newButton(g("del"), () => {
         delete edges[IdVal("id")]
         clearElement()
         updateDisplay()
@@ -184,19 +187,18 @@ function jsonify() {
     input.setAttribute("cols", "64")
     prompts.appendChild(input)
     addBreak()
-    newButton("... as Nodes", () => {
-        alert(`Original nodes: ${JSON.stringify(nodes)}`)
+    newButton(g("getnode"), () => {
+        alert(g("orgnode") + JSON.stringify(nodes))
         nodes = JSON.parse(IdVal("str", "txt"))
         updateDisplay()
     })
-    newButton("... as Edges", () => {
-        alert(`Original edges: ${JSON.stringify(edges)}`)
+    newButton(g("getedge"), () => {
+        alert(g("orgedge") + JSON.stringify(edges))
         edges = JSON.parse(IdVal("str", "txt"))
         updateDisplay()
     })
-    newButton("Done", () => {
+    newButton(g("fin"), () => {
         clearElement()
     })
 
 }
-
