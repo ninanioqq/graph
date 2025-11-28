@@ -20,3 +20,9 @@ input {
 .monospace {
     font-family: "Consolans";
 }
+.unimplemented {
+    color: #f77;
+}
+option.unimplemented:hover {
+    color: #f99;
+}
