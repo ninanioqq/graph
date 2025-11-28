@@ -1,12 +1,12 @@
 button, option {
-    background-color: #f0f2;
+    background-color: #ff00ff22;
     border-radius: 10px;
     border: solid #000 1px;
     transition: all 0.2s ease;
     margin: 2px 3px;
 }
 button:hover, option:hover {
-    background-color: #f0f4;
+    background-color: #ff00ff44;
     cursor: pointer;
 }
 #canv {
@@ -19,7 +19,7 @@ input {
     margin: 2px 3px;
 }
 .monospace {
-    font-family: "Consolans";
+    font-family: "Consolas", monospace;
 }
 .unimplemented {
     color: #f77;
@@ -28,4 +28,5 @@ option.unimplemented:hover {
     color: #f99;
     cursor: not-allowed;
 }
+
 
