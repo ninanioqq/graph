@@ -11,11 +11,17 @@ function loadLanguage(lang) {
     .then(data => {
       docLang = data;
       console.log('Language loaded:', lang);
+
+      // Update button texts here, after the data is loaded
+      for (let i = 1; i < 15; i++) {
+        const btn = document.querySelector(`#btn${i}`);
+        if (btn && docLang[`btn${i}`]) {
+          btn.innerText = docLang[`btn${i}`];
+        }
+      }
     })
     .catch(error => console.error('Error loading language:', error));
-  for (let i = 1; i < 15; i++) {
-  	document.querySelector(`#btn${i}`).innerText = docLang[`btn${i}`]
-  }
+}
 
 // Event listener for language changes
 languageSelector.addEventListener('change', () => {
