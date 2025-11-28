@@ -46,7 +46,8 @@
 }
 ```
 
-# *THIS IS A VERY EARLY AND VERY CRUDE WIP*
+# *THIS IS AN EARLY AND VERY CRUDE WIP*
 
 
 ## [contact](https://discord.gg/GBZXANb6nu) (discord link)
+
