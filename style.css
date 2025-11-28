@@ -1,12 +1,13 @@
-button {
+button, option {
     background-color: #f0f2;
     border-radius: 10px;
     border: solid #000 1px;
     transition: all 0.2s ease;
     margin: 2px 3px;
 }
-button:hover {
+button:hover, option:hover {
     background-color: #f0f4;
+    cursor: pointer;
 }
 #canv {
     border: solid #000 1px;
@@ -25,4 +26,6 @@ input {
 }
 option.unimplemented:hover {
     color: #f99;
+    cursor: not-allowed;
 }
+
