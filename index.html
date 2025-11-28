@@ -7,25 +7,28 @@
     <link href="style.css" rel="stylesheet">
 </head>
 <body>
+    <select id="langs">
+        
+    </select>
+    <script src="langsel.js"></script>
     <script src="idval.js"></script>
     <script src="forceatlas.js"></script>
     <div>
-        <button onclick="pad++; updateDisplay()">Increase Padding</button>
-        <button onclick="pad--; updateDisplay()">Decrease Padding</button>
-        <button onclick="newNode()">Add / Edit Node</button>
-        <button onclick="newEdge()">Add / Edit Edge</button>
-        <button onclick="deleteNode()">Delete Node</button>
-        <button onclick="deleteEdge()">Delete Edge</button>
-        <!-- <button onclick='nodes.p = {"x": 50, "y": 20, "radius": 10}; nodes.q = {"x": 20, "y": 50, "radius": 15}; nodes.r = {"x": 40, "y": -10, "radius": 12}; edges.pee = {"source": "p", "target": "q", "width": 1}; edges.qee = {"source": "r", "target": "q", "width": 1}; updateDisplay()'>Example Nodes</button> -->
-        <button onclick="forceAtlas()">Force Atlas</button>
-        <button onclick="forceAtlas(100)">Force Atlas 100 iterations</button>
-        <button onclick="iterForceAtlas()">Iterate Force Atlas</button>
-        <button onclick="forceAtlas(1, 0.01)">Weak Force Atlas</button>
-        <button onclick="forceAtlas(100, 0.01)">Weak Force Atlas 100 iterations</button>
-        <button onclick="iterForceAtlas(0.01)">Iterate Weak Force Atlas</button>
-        <button onclick="alert(JSON.stringify(nodes))">Get Nodes</button>
-        <button onclick="alert(JSON.stringify(edges))">Get Edges</button>
-        <button onclick="jsonify()">Fetch nodes / edges</button>
+        <button id="btn1" onclick="pad++; updateDisplay()">Increase Padding</button>
+        <button id="btn2" onclick="pad--; updateDisplay()">Decrease Padding</button>
+        <button id="btn3" onclick="newNode()">Add / Edit Node</button>
+        <button id="btn4" onclick="newEdge()">Add / Edit Edge</button>
+        <button id="btn5" onclick="deleteNode()">Delete Node</button>
+        <button id="btn6" onclick="deleteEdge()">Delete Edge</button>
+        <button id="btn7" onclick="forceAtlas()">Force Atlas</button>
+        <button id="btn8" onclick="forceAtlas(100)">Force Atlas 100 iterations</button>
+        <button id="btn9" onclick="iterForceAtlas()">Iterate Force Atlas</button>
+        <button id="btn10" onclick="forceAtlas(1, 0.01)">Weak Force Atlas</button>
+        <button id="btn11" onclick="forceAtlas(100, 0.01)">Weak Force Atlas 100 iterations</button>
+        <button id="btn12" onclick="iterForceAtlas(0.01)">Iterate Weak Force Atlas</button>
+        <button id="btn13" onclick="alert(JSON.stringify(nodes))">Get Nodes</button>
+        <button id="btn14" onclick="alert(JSON.stringify(edges))">Get Edges</button>
+        <button id="btn15" onclick="jsonify()">Fetch nodes / edges</button>
     </div>
     <svg id="canv" width="0" height="0"></svg>
     <div id="prompts"></div>
@@ -33,3 +36,4 @@
 </body>
 
 </html>
+
