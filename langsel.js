@@ -13,7 +13,9 @@ function loadLanguage(lang) {
       console.log('Language loaded:', lang);
     })
     .catch(error => console.error('Error loading language:', error));
-}
+  for (let i = 1; i < 15; i++) {
+  	document.querySelector(`#btn${i}`).innerText = docLang[`btn${i}`]
+  }
 
 // Event listener for language changes
 languageSelector.addEventListener('change', () => {
