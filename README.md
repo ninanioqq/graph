@@ -8,7 +8,6 @@
 - edges:
   - `source` - id of source node
   - `target` - id of target node
-  - **`source` and `target` are interchangeable!!**
   - `width` - weight of edge
   - **it is `width`, not `weight`!!**
 
@@ -48,5 +47,6 @@
 ```
 
 # *THIS IS A VERY EARLY AND VERY CRUDE WIP*
+
 
 ## [contact](https://discord.gg/GBZXANb6nu) (discord link)
