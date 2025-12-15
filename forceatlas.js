@@ -94,4 +94,5 @@ function iterForceAtlas(attraction = 0.2, repulsion = 2000, iter = 5000) {
         console.log(`Loss: ${loss}\nIteration: ${i}`)
     }
     updateDisplay()
-}}
+}
+
